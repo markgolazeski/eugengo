@@ -1,0 +1,17 @@
+h1, h2, h3, h4, h5 {
+  text-align: center;
+}
+
+td {
+  /*font-family: 'Donegal One', serif;*/
+  font-family: 'Playfair Display SC', serif;
+  font-size: 11px;
+  width: 20%;
+  height: 100px;
+  text-align: center;
+  padding: 8px;
+}
+
+table, tr, td {
+  border: 1px solid black;
+}
