@@ -15,3 +15,15 @@ td {
 table, tr, td {
   border: 1px solid black;
 }
+
+h1.title {
+  font-family: 'Uncial Antiqua', cursive;
+}
+
+h3.motto {
+  font-family: 'Norican', cursive;
+}
+
+h4.rules {
+  font-family: 'Risque', cursive;
+}

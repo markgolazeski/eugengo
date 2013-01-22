@@ -9,17 +9,21 @@
 #import argparse #blah do this later
 import sys
 import random
+import time
 
 def header():
   header = """<html>
     <head>
       <link href='styles.css' rel='stylesheet' type='text/css' />
-      <!--<link href='http://fonts.googleapis.com/css?family=Donegal+One' rel='stylesheet' type='text/css' />-->
-      <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css' />
+      <link href='http://fonts.googleapis.com/css?family=Risque|Playfair+Display+SC|Cabin+Condensed|Uncial+Antiqua|Norican' rel='stylesheet' type='text/css'>
     </head>
-    <body>\n<h1>Eugenego</h1>\n\n<h3>It's played for keeps</h3>\n\n
-    <h4>Name of the game must be shouted on victory</h4>"""
+    <body>\n<h1 class="title">Eugenego</h1>\n\n<h3 class="motto">Eugenego is played for keeps</h3>\n\n
+    <h4 class="rules">Name of the game must be shouted on victory</h4>"""
   return header
+
+def seed_info(millis):
+  info = "\n<h5> Board generated with seed:%(millis)i </h5>\n" % {"millis": millis}
+  return info
 
 def footer():
   footer = """\n</body>\n</html>"""
@@ -38,8 +42,9 @@ def table(data):
   table_html = table_html + "</table>"
   return table_html
 
-output = "output.html"
-input_file_name = "random_topics.txt"
+millis = int(time.time())
+output = "output_" + str(millis) + ".html"
+input_file_name = "eugene_topics.txt"
 free_square = False
 topics_hash = None
 
@@ -54,4 +59,5 @@ if free_square:
 
 output_file.write(header())
 output_file.write(table(sampling))
+output_file.write(seed_info(millis))
 output_file.write(footer())
